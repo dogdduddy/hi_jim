@@ -1,0 +1,42 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Android
+hi_jim_android/app/build/
+hi_jim_android/shared/build/
+hi_jim_android/build/
+hi_jim_android/.gradle/
+hi_jim_android/local.properties
+hi_jim_android/.idea/
+hi_jim_android/*.iml
+hi_jim_android/.externalNativeBuild
+hi_jim_android/.cxx
+hi_jim_android/captures/
+hi_jim_android/app/release/
+
+# iOS
+hi_jim_ios/DerivedData/
+hi_jim_ios/build/
+hi_jim_ios/*.xcworkspace/xcuserdata/
+hi_jim_ios/*.xcodeproj/xcuserdata/
+hi_jim_ios/*.xcodeproj/project.xcworkspace/xcuserdata/
+hi_jim_ios/Pods/
+hi_jim_ios/.swiftpm/
+
+# Firebase Functions
+firebase_functions/functions/node_modules/
+firebase_functions/node_modules/
+firebase_functions/.firebase/
+
+# IDE
+.idea/
+*.swp
+*.swo
+*~
+
+# Secrets
+**/google-services.json
+**/GoogleService-Info.plist
+firebase_functions/.env
