@@ -1,4 +1,4 @@
-package com.jim.hi_jim.presentation.ui
+package com.jim.hi_jim.presentation.ui.sumo
 
 import android.util.Log
 import com.jim.hi_jim.shared.engine.SumoPhysicsEngine

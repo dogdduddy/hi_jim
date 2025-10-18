@@ -1,4 +1,4 @@
-package com.jim.hi_jim.presentation.ui
+package com.jim.hi_jim.presentation.ui.sumo
 
 import com.jim.hi_jim.shared.engine.SumoPhysicsEngine
 import androidx.compose.foundation.Canvas

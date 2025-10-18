@@ -1,4 +1,4 @@
-package com.jim.hi_jim.presentation.viewmodel
+package com.jim.hi_jim.presentation.viewmodel.sumo
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -82,9 +82,7 @@ class MultiplayerGameViewModel(
     }
 
     // 게임 종료
-    fun quitGame() {
-        viewModelScope.launch {
-            repository.endGame(gameId)
-        }
+    suspend fun quitGame() {
+        repository.endGame(gameId)
     }
 }

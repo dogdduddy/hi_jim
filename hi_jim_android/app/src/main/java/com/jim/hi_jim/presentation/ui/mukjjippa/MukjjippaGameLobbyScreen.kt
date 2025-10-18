@@ -1,4 +1,4 @@
-package com.jim.hi_jim.presentation.ui
+package com.jim.hi_jim.presentation.ui.mukjjippa
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -19,13 +19,14 @@ import com.jim.hi_jim.shared.model.GameRequest
 import com.jim.hi_jim.shared.model.GameRequestStatus
 
 @Composable
-fun GameLobbyScreen(
+fun MukjjippaGameLobbyScreen(
     receivedRequests: List<GameRequest>,
     sentRequestStatus: GameRequestStatus?,
     onSendRequest: () -> Unit,
     onCancelRequest: () -> Unit,
     onAcceptRequest: (String) -> Unit,
-    onRejectRequest: (String) -> Unit
+    onRejectRequest: (String) -> Unit,
+    onBackToMenu: () -> Unit = {}
 ) {
     LazyColumn(
         modifier = Modifier.fillMaxSize(),
@@ -33,15 +34,36 @@ fun GameLobbyScreen(
         contentPadding = PaddingValues(vertical = 16.dp, horizontal = 12.dp),
         verticalArrangement = Arrangement.spacedBy(12.dp)
     ) {
-        // 제목
+        // 제목 및 뒤로가기 버튼
         item {
-            Text(
-                text = "스모 게임 로비",
-                fontSize = 16.sp,
-                fontWeight = FontWeight.Bold,
-                color = Color.White,
-                textAlign = TextAlign.Center
-            )
+            Column(
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.spacedBy(8.dp)
+            ) {
+                Text(
+                    text = "묵찌빠 게임 로비",
+                    fontSize = 16.sp,
+                    fontWeight = FontWeight.Bold,
+                    color = Color.White,
+                    textAlign = TextAlign.Center
+                )
+
+                Button(
+                    onClick = onBackToMenu,
+                    modifier = Modifier
+                        .fillMaxWidth(0.6f)
+                        .height(30.dp),
+                    colors = ButtonDefaults.buttonColors(
+                        backgroundColor = Color(0xFF666666)
+                    )
+                ) {
+                    Text(
+                        text = "← 메인 메뉴",
+                        fontSize = 11.sp,
+                        fontWeight = FontWeight.Bold
+                    )
+                }
+            }
         }
 
         // 게임 요청 보내기 버튼
@@ -55,7 +77,7 @@ fun GameLobbyScreen(
                     .fillMaxWidth()
                     .height(40.dp),
                 colors = ButtonDefaults.buttonColors(
-                    backgroundColor = if (isRequestPending) Color.Gray else Color(0xFF4CAF50),
+                    backgroundColor = if (isRequestPending) Color.Gray else Color(0xFF2E8B57),
                     disabledBackgroundColor = Color.Gray
                 )
             ) {
@@ -124,7 +146,7 @@ fun GameLobbyScreen(
 
             // 받은 요청 목록
             items(receivedRequests) { request ->
-                ReceivedRequestItem(
+                MukjjippaReceivedRequestItem(
                     request = request,
                     onAccept = { onAcceptRequest(request.requestId) },
                     onReject = { onRejectRequest(request.requestId) }
@@ -145,7 +167,7 @@ fun GameLobbyScreen(
 }
 
 @Composable
-fun ReceivedRequestItem(
+fun MukjjippaReceivedRequestItem(
     request: GameRequest,
     onAccept: () -> Unit,
     onReject: () -> Unit
@@ -177,7 +199,7 @@ fun ReceivedRequestItem(
                     .weight(1f)
                     .height(35.dp),
                 colors = ButtonDefaults.buttonColors(
-                    backgroundColor = Color(0xFF4CAF50)
+                    backgroundColor = Color(0xFF2E8B57)
                 )
             ) {
                 Text(

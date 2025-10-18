@@ -1,4 +1,4 @@
-package com.jim.hi_jim.presentation.ui
+package com.jim.hi_jim.presentation.ui.sumo
 
 import android.util.Log
 import androidx.compose.animation.core.Animatable
@@ -119,7 +119,29 @@ fun MultiplayerSumoGameScreen(
             modifier = Modifier.fillMaxSize(),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Spacer(Modifier.height(20.dp))
+            // 뒤로가기 버튼
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(start = 8.dp, top = 4.dp),
+                horizontalArrangement = Arrangement.Start
+            ) {
+                Button(
+                    onClick = onQuitGame,
+                    modifier = Modifier.size(24.dp),
+                    colors = ButtonDefaults.buttonColors(
+                        backgroundColor = Color(0xFF4D4D4D)
+                    )
+                ) {
+                    Text(
+                        text = "←",
+                        fontSize = 12.sp,
+                        color = Color.White
+                    )
+                }
+            }
+
+            Spacer(Modifier.height(8.dp))
 
             // 스코어 표시
             Row(

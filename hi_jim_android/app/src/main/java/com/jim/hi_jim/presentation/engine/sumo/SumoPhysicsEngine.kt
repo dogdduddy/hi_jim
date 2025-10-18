@@ -1,4 +1,4 @@
-package com.jim.hi_jim.presentation.engine
+package com.jim.hi_jim.presentation.engine.sumo
 
 import android.util.Log
 import com.jim.hi_jim.shared.model.GameStatus

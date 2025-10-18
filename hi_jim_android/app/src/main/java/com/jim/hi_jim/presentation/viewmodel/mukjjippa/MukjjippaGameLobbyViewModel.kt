@@ -1,4 +1,4 @@
-package com.jim.hi_jim.presentation.viewmodel
+package com.jim.hi_jim.presentation.viewmodel.mukjjippa
 
 import android.util.Log
 import androidx.lifecycle.ViewModel
@@ -7,19 +7,20 @@ import com.jim.hi_jim.data.repository.FirebaseGameRepository
 import com.jim.hi_jim.presentation.constants.UserConstants
 import com.jim.hi_jim.shared.model.GameRequest
 import com.jim.hi_jim.shared.model.GameRequestStatus
+import com.jim.hi_jim.shared.model.GameType
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 
-class GameLobbyViewModel : ViewModel() {
+class MukjjippaGameLobbyViewModel : ViewModel() {
 
     private val repository = FirebaseGameRepository()
     private val currentUserId = UserConstants.CURRENT_USER_ID
     private val otherUserId = if (currentUserId == UserConstants.USER_1)
         UserConstants.USER_2 else UserConstants.USER_1
 
-    // 받은 요청 목록
+    // 받은 묵찌빠 게임 요청 목록
     val receivedRequests: StateFlow<List<GameRequest>> = repository
-        .observeGameRequests(currentUserId)
+        .observeGameRequestsByType(currentUserId, GameType.MUKJJIPPA)
         .stateIn(
             scope = viewModelScope,
             started = SharingStarted.WhileSubscribed(5000),
@@ -29,15 +30,24 @@ class GameLobbyViewModel : ViewModel() {
     // 보낸 요청 ID
     private val _sentRequestId = MutableStateFlow<String?>(null)
 
-    // 보낸 요청 상태
-    val sentRequestStatus: StateFlow<GameRequestStatus?> = _sentRequestId
+    // 보낸 요청의 전체 정보 (상태 + gameId 포함)
+    private val sentRequest: StateFlow<GameRequest?> = _sentRequestId
         .flatMapLatest { requestId ->
             if (requestId != null) {
-                repository.observeRequestStatus(otherUserId, requestId)
+                repository.observeSentRequest(currentUserId, requestId)
             } else {
                 flowOf(null)
             }
         }
+        .stateIn(
+            scope = viewModelScope,
+            started = SharingStarted.Eagerly,
+            initialValue = null
+        )
+
+    // 보낸 요청 상태 (UI 표시용)
+    val sentRequestStatus: StateFlow<GameRequestStatus?> = sentRequest
+        .map { it?.status }
         .stateIn(
             scope = viewModelScope,
             started = SharingStarted.WhileSubscribed(5000),
@@ -49,18 +59,18 @@ class GameLobbyViewModel : ViewModel() {
     val gameId: StateFlow<String?> = _gameId.asStateFlow()
 
     companion object {
-        private const val TAG = "GameLobbyViewModel"
+        private const val TAG = "MukjjippaGameLobbyVM"
     }
 
-    // 게임 요청 보내기
+    // 묵찌빠 게임 요청 보내기
     fun sendGameRequest() {
         viewModelScope.launch {
-            val result = repository.sendGameRequest(currentUserId, otherUserId)
+            val result = repository.sendGameRequest(currentUserId, otherUserId, GameType.MUKJJIPPA)
             result.onSuccess { requestId ->
                 _sentRequestId.value = requestId
-                Log.d(TAG, "Request sent: $requestId")
+                Log.d(TAG, "Mukjjippa request sent: $requestId")
             }.onFailure { error ->
-                Log.e(TAG, "Failed to send request", error)
+                Log.e(TAG, "Failed to send mukjjippa request", error)
             }
         }
     }
@@ -72,10 +82,10 @@ class GameLobbyViewModel : ViewModel() {
             result.onSuccess { gameId ->
                 if (gameId != null) {
                     _gameId.value = gameId
-                    Log.d(TAG, "Game created: $gameId")
+                    Log.d(TAG, "Mukjjippa game created: $gameId")
                 }
             }.onFailure { error ->
-                Log.e(TAG, "Failed to accept request", error)
+                Log.e(TAG, "Failed to accept mukjjippa request", error)
             }
         }
     }
@@ -94,7 +104,7 @@ class GameLobbyViewModel : ViewModel() {
             if (requestId != null) {
                 repository.respondToGameRequest(currentUserId, requestId, accept = false)
                 _sentRequestId.value = null
-                Log.d(TAG, "Request cancelled: $requestId")
+                Log.d(TAG, "Mukjjippa request cancelled: $requestId")
             }
         }
     }
@@ -102,22 +112,21 @@ class GameLobbyViewModel : ViewModel() {
     // 보낸 요청이 수락되었을 때 게임 ID 확인
     init {
         viewModelScope.launch {
-            _sentRequestId.flatMapLatest { requestId ->
-                if (requestId != null) {
-                    // 보낸 요청의 전체 정보를 감시 (fromUserId 경로)
-                    repository.observeSentRequest(currentUserId, requestId)
-                } else {
-                    flowOf(null)
-                }
-            }.collect { request ->
-                Log.d(TAG, "Sent request update: ${request?.status}, gameId=${request?.gameId}")
-                if (request?.status == GameRequestStatus.ACCEPTED && request.gameId != null) {
-                    _gameId.value = request.gameId
-                    Log.d(TAG, "Game started from request sender: ${request.gameId}")
-                } else if (request == null) {
+            sentRequest.collect { request ->
+                Log.d(TAG, "Sent mukjjippa request update: status=${request?.status}, gameId=${request?.gameId}")
+
+                when {
+                    // 요청이 수락되고 gameId가 있으면 게임 시작
+                    request?.status == GameRequestStatus.ACCEPTED && request.gameId != null -> {
+                        _gameId.value = request.gameId
+                        _sentRequestId.value = null
+                        Log.d(TAG, "✅ Mukjjippa game started from request sender: ${request.gameId}")
+                    }
                     // 요청이 삭제된 경우 (거절/취소)
-                    _sentRequestId.value = null
-                    Log.d(TAG, "Request rejected or cancelled")
+                    request == null && _sentRequestId.value != null -> {
+                        _sentRequestId.value = null
+                        Log.d(TAG, "🔴 Mukjjippa request rejected or cancelled")
+                    }
                 }
             }
         }
