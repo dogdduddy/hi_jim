@@ -205,7 +205,7 @@
 			);
 			productName = "hi_jim Watch App";
 			productReference = 380685F22EA10C7400F6DBBB /* hi_jim Watch App.app */;
-			productType = "com.apple.product-type.application";
+			productType = "com.apple.product-type.application.watchapp2";
 		};
 		380686032EA10C7500F6DBBB /* hi_jim Watch AppTests */ = {
 			isa = PBXNativeTarget;
