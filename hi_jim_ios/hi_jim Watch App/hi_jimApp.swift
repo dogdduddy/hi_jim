@@ -19,7 +19,7 @@ struct hi_jim_Watch_AppApp: App {
 
     var body: some Scene {
         WindowGroup {
-            GameLobbyView()
+            MainMenuView()
         }
     }
 }

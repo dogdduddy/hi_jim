@@ -119,14 +119,12 @@ class MultiplayerGameViewModel: ObservableObject {
     }
 
     // 게임 종료
-    func exitGame() {
-        Task {
-            do {
-                try await repository.endGame(gameId: gameId)
-                shouldExitToLobby = true
-            } catch {
-                errorMessage = "게임 종료 실패: \(error.localizedDescription)"
-            }
+    func exitGame() async {
+        do {
+            try await repository.endGame(gameId: gameId)
+            shouldExitToLobby = true
+        } catch {
+            errorMessage = "게임 종료 실패: \(error.localizedDescription)"
         }
     }
 

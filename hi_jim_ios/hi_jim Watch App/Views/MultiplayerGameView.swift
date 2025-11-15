@@ -66,12 +66,34 @@ struct MultiplayerGameView: View {
                 gameCanvas(size: geometry.size)
                     .allowsHitTesting(false)
 
-                // 점수 표시 (상단, 터치 이벤트 무시)
+                // 상단 UI (뒤로가기 버튼 + 점수)
                 VStack {
+                    HStack {
+                        // 뒤로가기 버튼
+                        Button(action: {
+                            Task {
+                                await viewModel.exitGame()
+                            }
+                        }) {
+                            Image(systemName: "chevron.left")
+                                .font(.system(size: 10, weight: .bold))
+                                .foregroundColor(.white)
+                                .frame(width: 24, height: 24)
+                                .background(Color(red: 0.3, green: 0.3, blue: 0.3))
+                                .cornerRadius(12)
+                        }
+                        .buttonStyle(.plain)
+
+                        Spacer()
+                    }
+                    .padding(.horizontal, 8)
+                    .padding(.top, 4)
+
                     scoreBoard
+
                     Spacer()
                 }
-                .allowsHitTesting(false)
+                .allowsHitTesting(true)
             }
         }
     }
@@ -284,7 +306,9 @@ struct MultiplayerGameView: View {
 
                 Button(action: {
                     if buttonsEnabled {
-                        viewModel.exitGame()
+                        Task {
+                            await viewModel.exitGame()
+                        }
                     }
                 }) {
                     Text("QUIT GAME")

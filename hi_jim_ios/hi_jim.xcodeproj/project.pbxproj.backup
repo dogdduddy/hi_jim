@@ -7,23 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1327C1585ACACE44BEB5CAE4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F572E6D0A94318FF7DAA8BD7 /* Assets.xcassets */; };
-		1B78C03B8B9789534ECBBED0 /* Pods_hi_jim_Watch_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20B36522A2510D5DB3724F27 /* Pods_hi_jim_Watch_App.framework */; };
-		1BBCB76E2EC8E12300A53F20 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 5A1C952E2CEE980E09682809 /* FirebaseMessaging */; };
-		1BBCB76F2EC8E12300A53F20 /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 153986B13449A4E8BF58B6D1 /* FirebaseCore */; };
-		1BBCB7702EC8E12300A53F20 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 3E895D9A8583CCE11F2CDE64 /* FirebaseDatabase */; };
-		1BBCB7A82EC8E34600A53F20 /* iOSFCMTokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C49D121090652FB19265CEA /* iOSFCMTokenManager.swift */; };
 		380685F32EA10C7400F6DBBB /* hi_jim Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 380685F22EA10C7400F6DBBB /* hi_jim Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		380686292EA10E8B00F6DBBB /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 380686282EA10E8B00F6DBBB /* FirebaseAnalytics */; };
 		380686512EA118BD00F6DBBB /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 380686502EA118BD00F6DBBB /* FirebaseDatabase */; };
 		380686532EA118BD00F6DBBB /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 380686522EA118BD00F6DBBB /* FirebaseFirestore */; };
-		4DBE37C45316242A487FDFF6 /* Pods_hi_jim.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E98FA0D9F80217E00F1A300A /* Pods_hi_jim.framework */; };
-		9854B4D60F0B7363F36F5B08 /* hi_jim_iOS_App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518A69F835BF7E8AA6FE96FB /* hi_jim_iOS_App.swift */; };
-		9E90A493CE4D983ACCE79786 /* iOSFCMTokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C49D121090652FB19265CEA /* iOSFCMTokenManager.swift */; };
-		ABFE9AF020B31FD58D649333 /* Pods_hi_jim_Watch_App_hi_jim_Watch_AppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF57EA502CAE0277349C7AA1 /* Pods_hi_jim_Watch_App_hi_jim_Watch_AppUITests.framework */; };
-		CCB47745EEE1A17D12B4B8FF /* iOSAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8410653951A515208E9F2613 /* iOSAppDelegate.swift */; };
-		DEB3B19DE9A653BA0F764596 /* Pods_hi_jim_Watch_AppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D7DFCE46CB7EC4D1029D407 /* Pods_hi_jim_Watch_AppTests.framework */; };
-		E70C534CA52885FBFB00BBDF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FD5D9C9B311F9859B49300 /* ContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,46 +52,15 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		053C395F952012A8067B6389 /* Pods-hi_jim.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hi_jim.debug.xcconfig"; path = "Target Support Files/Pods-hi_jim/Pods-hi_jim.debug.xcconfig"; sourceTree = "<group>"; };
-		1C49D121090652FB19265CEA /* iOSFCMTokenManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = iOSFCMTokenManager.swift; sourceTree = "<group>"; };
-		20B36522A2510D5DB3724F27 /* Pods_hi_jim_Watch_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_hi_jim_Watch_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		339CA0FB61302E510654B5BC /* Pods-hi_jim Watch App-hi_jim Watch AppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hi_jim Watch App-hi_jim Watch AppUITests.debug.xcconfig"; path = "Target Support Files/Pods-hi_jim Watch App-hi_jim Watch AppUITests/Pods-hi_jim Watch App-hi_jim Watch AppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		380685EC2EA10C7400F6DBBB /* hi_jim.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hi_jim.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		380685F22EA10C7400F6DBBB /* hi_jim Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "hi_jim Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		380686042EA10C7500F6DBBB /* hi_jim Watch AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "hi_jim Watch AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3806860E2EA10C7500F6DBBB /* hi_jim Watch AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "hi_jim Watch AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		4D7DFCE46CB7EC4D1029D407 /* Pods_hi_jim_Watch_AppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_hi_jim_Watch_AppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		518A69F835BF7E8AA6FE96FB /* hi_jim_iOS_App.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = hi_jim_iOS_App.swift; sourceTree = "<group>"; };
-		56D81C38AC70DD8A77100F23 /* GoogleService-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		64D092777931519AB8D25F15 /* Pods-hi_jim Watch App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hi_jim Watch App.debug.xcconfig"; path = "Target Support Files/Pods-hi_jim Watch App/Pods-hi_jim Watch App.debug.xcconfig"; sourceTree = "<group>"; };
-		761E8DB26814365B4D10393B /* Pods-hi_jim Watch AppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hi_jim Watch AppTests.debug.xcconfig"; path = "Target Support Files/Pods-hi_jim Watch AppTests/Pods-hi_jim Watch AppTests.debug.xcconfig"; sourceTree = "<group>"; };
-		8410653951A515208E9F2613 /* iOSAppDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = iOSAppDelegate.swift; sourceTree = "<group>"; };
-		8A410A73433A67DA923B471D /* Pods-hi_jim.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hi_jim.release.xcconfig"; path = "Target Support Files/Pods-hi_jim/Pods-hi_jim.release.xcconfig"; sourceTree = "<group>"; };
-		B009F97AED661524809A0FFC /* Pods-hi_jim Watch App-hi_jim Watch AppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hi_jim Watch App-hi_jim Watch AppUITests.release.xcconfig"; path = "Target Support Files/Pods-hi_jim Watch App-hi_jim Watch AppUITests/Pods-hi_jim Watch App-hi_jim Watch AppUITests.release.xcconfig"; sourceTree = "<group>"; };
-		C4FD5D9C9B311F9859B49300 /* ContentView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		C6CA43B183CA86D83E14BC26 /* Pods-hi_jim Watch AppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hi_jim Watch AppTests.release.xcconfig"; path = "Target Support Files/Pods-hi_jim Watch AppTests/Pods-hi_jim Watch AppTests.release.xcconfig"; sourceTree = "<group>"; };
-		E98FA0D9F80217E00F1A300A /* Pods_hi_jim.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_hi_jim.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		EF57EA502CAE0277349C7AA1 /* Pods_hi_jim_Watch_App_hi_jim_Watch_AppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_hi_jim_Watch_App_hi_jim_Watch_AppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F572E6D0A94318FF7DAA8BD7 /* Assets.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		FA591636295BAE8C064BC8EB /* Pods-hi_jim Watch App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hi_jim Watch App.release.xcconfig"; path = "Target Support Files/Pods-hi_jim Watch App/Pods-hi_jim Watch App.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		1BBCB7A72EC8E33D00A53F20 /* Exceptions for "hi_jim Watch App" folder in "hi_jim" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Models/GameModels.swift,
-			);
-			target = 380685EB2EA10C7400F6DBBB /* hi_jim */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		380685F62EA10C7400F6DBBB /* hi_jim Watch App */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				1BBCB7A72EC8E33D00A53F20 /* Exceptions for "hi_jim Watch App" folder in "hi_jim" target */,
-			);
 			path = "hi_jim Watch App";
 			sourceTree = "<group>";
 		};
@@ -121,17 +77,6 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		122CD7814D83F91881C40723 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				1BBCB7702EC8E12300A53F20 /* FirebaseDatabase in Frameworks */,
-				1BBCB76F2EC8E12300A53F20 /* FirebaseCore in Frameworks */,
-				1BBCB76E2EC8E12300A53F20 /* FirebaseMessaging in Frameworks */,
-				4DBE37C45316242A487FDFF6 /* Pods_hi_jim.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		380685EF2EA10C7400F6DBBB /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -139,7 +84,6 @@
 				380686512EA118BD00F6DBBB /* FirebaseDatabase in Frameworks */,
 				380686292EA10E8B00F6DBBB /* FirebaseAnalytics in Frameworks */,
 				380686532EA118BD00F6DBBB /* FirebaseFirestore in Frameworks */,
-				1B78C03B8B9789534ECBBED0 /* Pods_hi_jim_Watch_App.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,7 +91,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DEB3B19DE9A653BA0F764596 /* Pods_hi_jim_Watch_AppTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -155,7 +98,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ABFE9AF020B31FD58D649333 /* Pods_hi_jim_Watch_App_hi_jim_Watch_AppUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -169,9 +111,6 @@
 				380686072EA10C7500F6DBBB /* hi_jim Watch AppTests */,
 				380686112EA10C7500F6DBBB /* hi_jim Watch AppUITests */,
 				380685ED2EA10C7400F6DBBB /* Products */,
-				43232E6CE3BF69248F174BD1 /* hi_jim iOS App */,
-				FC622D05F6A9282D5D5C966C /* Pods */,
-				BCB19511CF876A403166FFE6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -186,45 +125,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		43232E6CE3BF69248F174BD1 /* hi_jim iOS App */ = {
-			isa = PBXGroup;
-			children = (
-				518A69F835BF7E8AA6FE96FB /* hi_jim_iOS_App.swift */,
-				C4FD5D9C9B311F9859B49300 /* ContentView.swift */,
-				8410653951A515208E9F2613 /* iOSAppDelegate.swift */,
-				1C49D121090652FB19265CEA /* iOSFCMTokenManager.swift */,
-				F572E6D0A94318FF7DAA8BD7 /* Assets.xcassets */,
-				56D81C38AC70DD8A77100F23 /* GoogleService-Info.plist */,
-			);
-			path = "hi_jim iOS App";
-			sourceTree = "<group>";
-		};
-		BCB19511CF876A403166FFE6 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				E98FA0D9F80217E00F1A300A /* Pods_hi_jim.framework */,
-				20B36522A2510D5DB3724F27 /* Pods_hi_jim_Watch_App.framework */,
-				EF57EA502CAE0277349C7AA1 /* Pods_hi_jim_Watch_App_hi_jim_Watch_AppUITests.framework */,
-				4D7DFCE46CB7EC4D1029D407 /* Pods_hi_jim_Watch_AppTests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		FC622D05F6A9282D5D5C966C /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				053C395F952012A8067B6389 /* Pods-hi_jim.debug.xcconfig */,
-				8A410A73433A67DA923B471D /* Pods-hi_jim.release.xcconfig */,
-				64D092777931519AB8D25F15 /* Pods-hi_jim Watch App.debug.xcconfig */,
-				FA591636295BAE8C064BC8EB /* Pods-hi_jim Watch App.release.xcconfig */,
-				339CA0FB61302E510654B5BC /* Pods-hi_jim Watch App-hi_jim Watch AppUITests.debug.xcconfig */,
-				B009F97AED661524809A0FFC /* Pods-hi_jim Watch App-hi_jim Watch AppUITests.release.xcconfig */,
-				761E8DB26814365B4D10393B /* Pods-hi_jim Watch AppTests.debug.xcconfig */,
-				C6CA43B183CA86D83E14BC26 /* Pods-hi_jim Watch AppTests.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -232,11 +132,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3806861C2EA10C7500F6DBBB /* Build configuration list for PBXNativeTarget "hi_jim" */;
 			buildPhases = (
-				376CF49FB1C17F4A87A63732 /* [CP] Check Pods Manifest.lock */,
 				380685EA2EA10C7400F6DBBB /* Resources */,
 				3806861B2EA10C7500F6DBBB /* Embed Watch Content */,
-				1840975EB4DBCEC3DA357EDD /* Sources */,
-				122CD7814D83F91881C40723 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -245,19 +142,15 @@
 			);
 			name = hi_jim;
 			packageProductDependencies = (
-				5A1C952E2CEE980E09682809 /* FirebaseMessaging */,
-				153986B13449A4E8BF58B6D1 /* FirebaseCore */,
-				3E895D9A8583CCE11F2CDE64 /* FirebaseDatabase */,
 			);
 			productName = hi_jim;
 			productReference = 380685EC2EA10C7400F6DBBB /* hi_jim.app */;
-			productType = "com.apple.product-type.application";
+			productType = "com.apple.product-type.application.watchapp2-container";
 		};
 		380685F12EA10C7400F6DBBB /* hi_jim Watch App */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 380686182EA10C7500F6DBBB /* Build configuration list for PBXNativeTarget "hi_jim Watch App" */;
 			buildPhases = (
-				D7F21147E7ECD60A7D28FCB5 /* [CP] Check Pods Manifest.lock */,
 				380685EE2EA10C7400F6DBBB /* Sources */,
 				380685EF2EA10C7400F6DBBB /* Frameworks */,
 				380685F02EA10C7400F6DBBB /* Resources */,
@@ -283,7 +176,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3806861F2EA10C7500F6DBBB /* Build configuration list for PBXNativeTarget "hi_jim Watch AppTests" */;
 			buildPhases = (
-				2369E132C5101CB2B3DF88E2 /* [CP] Check Pods Manifest.lock */,
 				380686002EA10C7500F6DBBB /* Sources */,
 				380686012EA10C7500F6DBBB /* Frameworks */,
 				380686022EA10C7500F6DBBB /* Resources */,
@@ -297,6 +189,8 @@
 				380686072EA10C7500F6DBBB /* hi_jim Watch AppTests */,
 			);
 			name = "hi_jim Watch AppTests";
+			packageProductDependencies = (
+			);
 			productName = "hi_jim Watch AppTests";
 			productReference = 380686042EA10C7500F6DBBB /* hi_jim Watch AppTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -305,7 +199,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 380686222EA10C7500F6DBBB /* Build configuration list for PBXNativeTarget "hi_jim Watch AppUITests" */;
 			buildPhases = (
-				A7F81E82FBE714F218B68DF4 /* [CP] Check Pods Manifest.lock */,
 				3806860A2EA10C7500F6DBBB /* Sources */,
 				3806860B2EA10C7500F6DBBB /* Frameworks */,
 				3806860C2EA10C7500F6DBBB /* Resources */,
@@ -319,6 +212,8 @@
 				380686112EA10C7500F6DBBB /* hi_jim Watch AppUITests */,
 			);
 			name = "hi_jim Watch AppUITests";
+			packageProductDependencies = (
+			);
 			productName = "hi_jim Watch AppUITests";
 			productReference = 3806860E2EA10C7500F6DBBB /* hi_jim Watch AppUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
@@ -379,7 +274,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1327C1585ACACE44BEB5CAE4 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -406,114 +300,11 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		2369E132C5101CB2B3DF88E2 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-hi_jim Watch AppTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		376CF49FB1C17F4A87A63732 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-hi_jim-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A7F81E82FBE714F218B68DF4 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-hi_jim Watch App-hi_jim Watch AppUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D7F21147E7ECD60A7D28FCB5 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-hi_jim Watch App-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
-		1840975EB4DBCEC3DA357EDD /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				9854B4D60F0B7363F36F5B08 /* hi_jim_iOS_App.swift in Sources */,
-				E70C534CA52885FBFB00BBDF /* ContentView.swift in Sources */,
-				CCB47745EEE1A17D12B4B8FF /* iOSAppDelegate.swift in Sources */,
-				9E90A493CE4D983ACCE79786 /* iOSFCMTokenManager.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		380685EE2EA10C7400F6DBBB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1BBCB7A82EC8E34600A53F20 /* iOSFCMTokenManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -604,7 +395,6 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				GENERATE_INFOPLIST_FILE = YES;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -660,7 +450,6 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				GENERATE_INFOPLIST_FILE = YES;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -670,7 +459,6 @@
 		};
 		380686192EA10C7500F6DBBB /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 64D092777931519AB8D25F15 /* Pods-hi_jim Watch App.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -681,8 +469,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = hi_jim;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "com.jim.hi-jim";
-				INFOPLIST_KEY_WKWatchOnly = NO;
+				INFOPLIST_KEY_WKWatchOnly = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -701,7 +488,6 @@
 		};
 		3806861A2EA10C7500F6DBBB /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FA591636295BAE8C064BC8EB /* Pods-hi_jim Watch App.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -712,8 +498,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = hi_jim;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "com.jim.hi-jim";
-				INFOPLIST_KEY_WKWatchOnly = NO;
+				INFOPLIST_KEY_WKWatchOnly = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -733,22 +518,10 @@
 		};
 		3806861D2EA10C7500F6DBBB /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 053C395F952012A8067B6389 /* Pods-hi_jim.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "";
-				ENABLE_PREVIEWS = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = "Hi Jim";
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "com.jim.hi-jim";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				INFOPLIST_KEY_CFBundleDisplayName = hi_jim;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jim.hi-jim";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -759,22 +532,10 @@
 		};
 		3806861E2EA10C7500F6DBBB /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8A410A73433A67DA923B471D /* Pods-hi_jim.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "";
-				ENABLE_PREVIEWS = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = "Hi Jim";
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "com.jim.hi-jim";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				INFOPLIST_KEY_CFBundleDisplayName = hi_jim;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jim.hi-jim";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -786,7 +547,6 @@
 		};
 		380686202EA10C7500F6DBBB /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 761E8DB26814365B4D10393B /* Pods-hi_jim Watch AppTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -806,7 +566,6 @@
 		};
 		380686212EA10C7500F6DBBB /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C6CA43B183CA86D83E14BC26 /* Pods-hi_jim Watch AppTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -827,7 +586,6 @@
 		};
 		380686232EA10C7500F6DBBB /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 339CA0FB61302E510654B5BC /* Pods-hi_jim Watch App-hi_jim Watch AppUITests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -846,7 +604,6 @@
 		};
 		380686242EA10C7500F6DBBB /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B009F97AED661524809A0FFC /* Pods-hi_jim Watch App-hi_jim Watch AppUITests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -926,11 +683,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		153986B13449A4E8BF58B6D1 /* FirebaseCore */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 380686272EA10E8B00F6DBBB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseCore;
-		};
 		380686282EA10E8B00F6DBBB /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 380686272EA10E8B00F6DBBB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
@@ -945,16 +697,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 380686272EA10E8B00F6DBBB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseFirestore;
-		};
-		3E895D9A8583CCE11F2CDE64 /* FirebaseDatabase */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 380686272EA10E8B00F6DBBB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseDatabase;
-		};
-		5A1C952E2CEE980E09682809 /* FirebaseMessaging */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 380686272EA10E8B00F6DBBB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseMessaging;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

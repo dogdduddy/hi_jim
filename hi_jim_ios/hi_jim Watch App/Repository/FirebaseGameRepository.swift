@@ -13,23 +13,26 @@ class FirebaseGameRepository {
     private let database = Database.database().reference()
     private let gameRequestsRef: DatabaseReference
     private let gamesRef: DatabaseReference
+    private let mukjjippaGamesRef: DatabaseReference
     private let physicsEngine = SumoPhysicsEngine()
 
     init() {
         gameRequestsRef = database.child("gameRequests")
         gamesRef = database.child("games")
+        mukjjippaGamesRef = database.child("mukjjippaGames")
     }
 
     // MARK: - Game Requests
 
     // 게임 요청 보내기
-    func sendGameRequest(fromUserId: String, toUserId: String) async throws -> String {
+    func sendGameRequest(fromUserId: String, toUserId: String, gameType: GameType = .SUMO) async throws -> String {
         let requestId = gameRequestsRef.child(toUserId).childByAutoId().key ?? UUID().uuidString
 
         let gameRequest = GameRequest(
             requestId: requestId,
             fromUserId: fromUserId,
             toUserId: toUserId,
+            gameType: gameType,
             status: .pending,
             timestamp: Int64(Date().timeIntervalSince1970 * 1000)
         )
@@ -55,7 +58,7 @@ class FirebaseGameRepository {
         return requestId
     }
 
-    // 받은 게임 요청 목록 실시간 감지
+    // 받은 게임 요청 목록 실시간 감지 (모든 게임 타입)
     func observeGameRequests(userId: String) -> AnyPublisher<[GameRequest], Error> {
         let subject = PassthroughSubject<[GameRequest], Error>()
 
@@ -88,6 +91,10 @@ class FirebaseGameRepository {
                         continue
                     }
 
+                    // gameType 파싱 (기본값: SUMO)
+                    let gameTypeString = dict["gameType"] as? String ?? GameType.SUMO.rawValue
+                    let gameType = GameType(rawValue: gameTypeString) ?? .SUMO
+
                     // PENDING 상태이고 내가 받는 사람인 요청만
                     if status == .pending && toUserId == userId {
                         let gameId = dict["gameId"] as? String
@@ -96,6 +103,7 @@ class FirebaseGameRepository {
                             requestId: requestId,
                             fromUserId: fromUserId,
                             toUserId: toUserId,
+                            gameType: gameType,
                             status: status,
                             timestamp: timestamp,
                             gameId: gameId
@@ -122,6 +130,15 @@ class FirebaseGameRepository {
             .eraseToAnyPublisher()
     }
 
+    // 특정 게임 타입의 요청만 감지
+    func observeGameRequestsByType(userId: String, gameType: GameType) -> AnyPublisher<[GameRequest], Error> {
+        return observeGameRequests(userId: userId)
+            .map { requests in
+                requests.filter { $0.gameType == gameType }
+            }
+            .eraseToAnyPublisher()
+    }
+
     // 보낸 요청의 상태 확인
     func observeSentRequest(fromUserId: String, requestId: String) -> AnyPublisher<GameRequest?, Error> {
         let subject = PassthroughSubject<GameRequest?, Error>()
@@ -136,11 +153,14 @@ class FirebaseGameRepository {
                let status = GameRequestStatus(rawValue: statusString) {
 
                 let gameId = dict["gameId"] as? String
+                let gameTypeString = dict["gameType"] as? String ?? GameType.SUMO.rawValue
+                let gameType = GameType(rawValue: gameTypeString) ?? .SUMO
 
                 let request = GameRequest(
                     requestId: requestIdVal,
                     fromUserId: fromUserIdVal,
                     toUserId: toUserIdVal,
+                    gameType: gameType,
                     status: status,
                     timestamp: timestamp,
                     gameId: gameId
@@ -204,9 +224,20 @@ class FirebaseGameRepository {
                 throw NSError(domain: "GameRepository", code: -1, userInfo: [NSLocalizedDescriptionKey: "Invalid request data"])
             }
 
-            print("🔵 Request decoded: from=\(fromUserId), to=\(toUserId)")
+            // gameType 파싱
+            let gameTypeString = requestDict["gameType"] as? String ?? GameType.SUMO.rawValue
+            let gameType = GameType(rawValue: gameTypeString) ?? .SUMO
 
-            let gameId = try await createGame(player1Id: fromUserId, player2Id: toUserId)
+            print("🔵 Request decoded: from=\(fromUserId), to=\(toUserId), gameType=\(gameType)")
+
+            // gameType에 따라 다른 게임 생성
+            let gameId: String
+            switch gameType {
+            case .SUMO:
+                gameId = try await createGame(player1Id: fromUserId, player2Id: toUserId)
+            case .MUKJJIPPA:
+                gameId = try await createMukjjippaGame(player1Id: fromUserId, player2Id: toUserId)
+            }
             print("🔵 Game created with ID: \(gameId)")
 
             // 상태와 게임 ID 업데이트
@@ -216,20 +247,27 @@ class FirebaseGameRepository {
             ]
 
             // 양쪽 경로 모두 업데이트
-            print("🔵 Updating /gameRequests/\(userId)/\(requestId)")
-            try await gameRequestsRef
-                .child(userId)
-                .child(requestId)
-                .updateChildValues(updates)
+            do {
+                print("🔵 Updating /gameRequests/\(userId)/\(requestId)")
+                try await gameRequestsRef
+                    .child(userId)
+                    .child(requestId)
+                    .updateChildValues(updates)
+                print("✅ Updated /gameRequests/\(userId)/\(requestId)")
 
-            print("🔵 Updating /gameRequests/\(fromUserId)/\(requestId)")
-            try await gameRequestsRef
-                .child(fromUserId)
-                .child(requestId)
-                .updateChildValues(updates)
+                print("🔵 Updating /gameRequests/\(fromUserId)/\(requestId)")
+                try await gameRequestsRef
+                    .child(fromUserId)
+                    .child(requestId)
+                    .updateChildValues(updates)
+                print("✅ Updated /gameRequests/\(fromUserId)/\(requestId)")
 
-            print("✅ Game accepted and created: \(gameId)")
-            return gameId
+                print("✅ Game accepted and created: \(gameId)")
+                return gameId
+            } catch {
+                print("🔴 Failed to update game request paths: \(error.localizedDescription)")
+                throw error
+            }
 
         } else {
             // 거절 또는 취소 시
@@ -399,5 +437,91 @@ class FirebaseGameRepository {
     func endGame(gameId: String) async throws {
         try await gamesRef.child(gameId).removeValue()
         print("Game ended: \(gameId)")
+    }
+
+    // MARK: - Mukjjippa Games
+
+    // 묵찌빠 게임 생성
+    private func createMukjjippaGame(player1Id: String, player2Id: String) async throws -> String {
+        let gameId = mukjjippaGamesRef.childByAutoId().key ?? UUID().uuidString
+
+        let gameData = MultiplayerMukjjippaData(
+            gameId: gameId,
+            player1Id: player1Id,
+            player2Id: player2Id,
+            bothPlayersReady: true
+        )
+
+        let encoder = JSONEncoder()
+        let data = try encoder.encode(gameData)
+        let dictionary = try JSONSerialization.jsonObject(with: data) as? [String: Any] ?? [:]
+
+        try await mukjjippaGamesRef.child(gameId).setValue(dictionary)
+
+        print("Mukjjippa game created: \(gameId)")
+        return gameId
+    }
+
+    // 묵찌빠 게임 상태 실시간 감지
+    func observeMukjjippaGameState(gameId: String) -> AnyPublisher<MultiplayerMukjjippaData?, Error> {
+        let subject = PassthroughSubject<MultiplayerMukjjippaData?, Error>()
+
+        print("🟦 [Firebase] Starting to observe Mukjjippa game: \(gameId)")
+
+        let handle = mukjjippaGamesRef.child(gameId).observe(.value) { snapshot in
+            print("🟦 [Firebase] Snapshot received for game: \(gameId)")
+            print("🟦 [Firebase] Snapshot exists: \(snapshot.exists())")
+
+            if snapshot.exists() {
+                if let dict = snapshot.value as? [String: Any] {
+                    print("🟦 [Firebase] Snapshot data keys: \(dict.keys)")
+                    print("🟦 [Firebase] Raw data: \(dict)")
+
+                    if let jsonData = try? JSONSerialization.data(withJSONObject: dict) {
+                        if let gameData = try? JSONDecoder().decode(MultiplayerMukjjippaData.self, from: jsonData) {
+                            print("✅ [Firebase] Successfully decoded game data: gameId=\(gameData.gameId), phase=\(gameData.phase)")
+                            subject.send(gameData)
+                        } else {
+                            print("🔴 [Firebase] Failed to decode MultiplayerMukjjippaData")
+                            subject.send(nil)
+                        }
+                    } else {
+                        print("🔴 [Firebase] Failed to serialize dict to JSON")
+                        subject.send(nil)
+                    }
+                } else {
+                    print("🔴 [Firebase] Snapshot value is not a dictionary")
+                    subject.send(nil)
+                }
+            } else {
+                print("🔴 [Firebase] Snapshot does not exist for gameId: \(gameId)")
+                subject.send(nil)
+            }
+        } withCancel: { error in
+            print("🔴 [Firebase] Observation cancelled with error: \(error.localizedDescription)")
+            subject.send(completion: .failure(error))
+        }
+
+        return subject
+            .handleEvents(receiveCancel: {
+                print("🟦 [Firebase] Observer cancelled for game: \(gameId)")
+                self.mukjjippaGamesRef.child(gameId).removeObserver(withHandle: handle)
+            })
+            .eraseToAnyPublisher()
+    }
+
+    // 묵찌빠 게임 상태 업데이트
+    func updateMukjjippaGameState(_ gameData: MultiplayerMukjjippaData) async throws {
+        let encoder = JSONEncoder()
+        let data = try encoder.encode(gameData)
+        let dictionary = try JSONSerialization.jsonObject(with: data) as? [String: Any] ?? [:]
+
+        try await mukjjippaGamesRef.child(gameData.gameId).setValue(dictionary)
+    }
+
+    // 묵찌빠 게임 종료
+    func endMukjjippaGame(gameId: String) async throws {
+        try await mukjjippaGamesRef.child(gameId).removeValue()
+        print("Mukjjippa game ended: \(gameId)")
     }
 }
