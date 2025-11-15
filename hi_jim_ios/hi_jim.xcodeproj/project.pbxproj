@@ -62,11 +62,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		380687082EA10C7400F6DBBB /* Shared */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Shared;
-			sourceTree = "<group>";
-		};
 		380685F62EA10C7400F6DBBB /* hi_jim Watch App */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = "hi_jim Watch App";
@@ -85,6 +80,11 @@
 		380687062EA10C7400F6DBBB /* hi_jim iOS App */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = "hi_jim iOS App";
+			sourceTree = "<group>";
+		};
+		380687082EA10C7400F6DBBB /* Shared */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Shared;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -168,8 +168,8 @@
 				380685F52EA10C7400F6DBBB /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				380687082EA10C7400F6DBBB /* Shared */,
 				380687062EA10C7400F6DBBB /* hi_jim iOS App */,
+				380687082EA10C7400F6DBBB /* Shared */,
 			);
 			name = hi_jim;
 			packageProductDependencies = (
@@ -194,8 +194,8 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				380687082EA10C7400F6DBBB /* Shared */,
 				380685F62EA10C7400F6DBBB /* hi_jim Watch App */,
+				380687082EA10C7400F6DBBB /* Shared */,
 			);
 			name = "hi_jim Watch App";
 			packageProductDependencies = (
