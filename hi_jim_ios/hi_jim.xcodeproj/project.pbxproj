@@ -62,6 +62,11 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		380687082EA10C7400F6DBBB /* Shared */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Shared;
+			sourceTree = "<group>";
+		};
 		380685F62EA10C7400F6DBBB /* hi_jim Watch App */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = "hi_jim Watch App";
@@ -125,6 +130,7 @@
 		380685E52EA10C7400F6DBBB = {
 			isa = PBXGroup;
 			children = (
+				380687082EA10C7400F6DBBB /* Shared */,
 				380687062EA10C7400F6DBBB /* hi_jim iOS App */,
 				380685F62EA10C7400F6DBBB /* hi_jim Watch App */,
 				380686072EA10C7500F6DBBB /* hi_jim Watch AppTests */,
@@ -162,6 +168,7 @@
 				380685F52EA10C7400F6DBBB /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
+				380687082EA10C7400F6DBBB /* Shared */,
 				380687062EA10C7400F6DBBB /* hi_jim iOS App */,
 			);
 			name = hi_jim;
@@ -187,6 +194,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
+				380687082EA10C7400F6DBBB /* Shared */,
 				380685F62EA10C7400F6DBBB /* hi_jim Watch App */,
 			);
 			name = "hi_jim Watch App";
@@ -499,6 +507,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"hi_jim Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = 7NARB43395;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = hi_jim;
@@ -528,6 +537,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"hi_jim Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = 7NARB43395;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = hi_jim;
