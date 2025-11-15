@@ -11,6 +11,9 @@
 		380686292EA10E8B00F6DBBB /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 380686282EA10E8B00F6DBBB /* FirebaseAnalytics */; };
 		380686512EA118BD00F6DBBB /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 380686502EA118BD00F6DBBB /* FirebaseDatabase */; };
 		380686532EA118BD00F6DBBB /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 380686522EA118BD00F6DBBB /* FirebaseFirestore */; };
+		380687032EA10C7400F6DBBB /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 380687072EA10C7400F6DBBB /* FirebaseMessaging */; };
+		380687042EA10C7400F6DBBB /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 380686282EA10E8B00F6DBBB /* FirebaseAnalytics */; };
+		380687052EA10C7400F6DBBB /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 380686502EA118BD00F6DBBB /* FirebaseDatabase */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +77,11 @@
 			path = "hi_jim Watch AppUITests";
 			sourceTree = "<group>";
 		};
+		380687062EA10C7400F6DBBB /* hi_jim iOS App */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "hi_jim iOS App";
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,12 +109,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		380687022EA10C7400F6DBBB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				380687032EA10C7400F6DBBB /* FirebaseMessaging in Frameworks */,
+				380687042EA10C7400F6DBBB /* FirebaseAnalytics in Frameworks */,
+				380687052EA10C7400F6DBBB /* FirebaseDatabase in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		380685E52EA10C7400F6DBBB = {
 			isa = PBXGroup;
 			children = (
+				380687062EA10C7400F6DBBB /* hi_jim iOS App */,
 				380685F62EA10C7400F6DBBB /* hi_jim Watch App */,
 				380686072EA10C7500F6DBBB /* hi_jim Watch AppTests */,
 				380686112EA10C7500F6DBBB /* hi_jim Watch AppUITests */,
@@ -132,6 +151,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3806861C2EA10C7500F6DBBB /* Build configuration list for PBXNativeTarget "hi_jim" */;
 			buildPhases = (
+				380687012EA10C7400F6DBBB /* Sources */,
+				380687022EA10C7400F6DBBB /* Frameworks */,
 				380685EA2EA10C7400F6DBBB /* Resources */,
 				3806861B2EA10C7500F6DBBB /* Embed Watch Content */,
 			);
@@ -140,12 +161,18 @@
 			dependencies = (
 				380685F52EA10C7400F6DBBB /* PBXTargetDependency */,
 			);
+			fileSystemSynchronizedGroups = (
+				380687062EA10C7400F6DBBB /* hi_jim iOS App */,
+			);
 			name = hi_jim;
 			packageProductDependencies = (
+				380687072EA10C7400F6DBBB /* FirebaseMessaging */,
+				380686282EA10E8B00F6DBBB /* FirebaseAnalytics */,
+				380686502EA118BD00F6DBBB /* FirebaseDatabase */,
 			);
 			productName = hi_jim;
 			productReference = 380685EC2EA10C7400F6DBBB /* hi_jim.app */;
-			productType = "com.apple.product-type.application.watchapp2-container";
+			productType = "com.apple.product-type.application";
 		};
 		380685F12EA10C7400F6DBBB /* hi_jim Watch App */ = {
 			isa = PBXNativeTarget;
@@ -316,6 +343,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		3806860A2EA10C7500F6DBBB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		380687012EA10C7400F6DBBB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -519,30 +553,62 @@
 		3806861D2EA10C7500F6DBBB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"hi_jim iOS App/Preview Content\"";
 				DEVELOPMENT_TEAM = 7NARB43395;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = hi_jim;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jim.hi-jim";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		3806861E2EA10C7500F6DBBB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"hi_jim iOS App/Preview Content\"";
 				DEVELOPMENT_TEAM = 7NARB43395;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = hi_jim;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jim.hi-jim";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -699,6 +765,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 380686272EA10E8B00F6DBBB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseFirestore;
+		};
+		380687072EA10C7400F6DBBB /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 380686272EA10E8B00F6DBBB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
