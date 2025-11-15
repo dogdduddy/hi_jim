@@ -195,7 +195,6 @@
 			);
 			fileSystemSynchronizedGroups = (
 				380685F62EA10C7400F6DBBB /* hi_jim Watch App */,
-				380687082EA10C7400F6DBBB /* Shared */,
 			);
 			name = "hi_jim Watch App";
 			packageProductDependencies = (
